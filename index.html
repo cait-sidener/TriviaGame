@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC" rel="stylesheet">
+    <title>TriviaGame</title>
+</head>
+
+<body style="background-image: url('assets/images/Flag.jpg');">
+    <div class="container container--content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">Un jeu de faits</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Le temps restant:</h3>
+                <p class="timeRemaining"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">1. Comment est-ce qu'on dit 12h30 ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>midi et quart</button>
+            </div>
+            <div class="col-md-3">
+                <button>midi moins le quart</button>
+            </div>
+            <div class="col-md-3">
+                <button>midi et demi</button>
+            </div>
+            <div class="col-md-3">
+                <button>une heure moins le quart</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">2. Quel genre de film est triste ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>un drame</button>
+            </div>
+            <div class="col-md-3">
+                <button>une comédie</button>
+            </div>
+            <div class="col-md-3">
+                <button>un film d'action</button>
+            </div>
+            <div class="col-md-3">
+                <button>un film d'aventures</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">3. Où est-ce que vous nagez ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>à l'école</button>
+            </div>
+            <div class="col-md-3">
+                <button>à la bibliothèque</button>
+            </div>
+            <div class="col-md-3">
+                <button>au centre commércial</button>
+            </div>
+            <div class="col-md-3">
+                <button>à la piscine</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">4. À quelle heure dînons-nous ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>à 8h00</button>
+            </div>
+            <div class="col-md-3">
+                <button>à 19h00</button>
+            </div>
+            <div class="col-md-3">
+                <button>à midi</button>
+            </div>
+            <div class="col-md-3">
+                <button>à 3h00 de l'après-midi</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">5. Quand allez-vous à l'école ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>à huit heure du soir</button>
+            </div>
+            <div class="col-md-3">
+                <button>à huit heure du matin</button>
+            </div>
+            <div class="col-md-3">
+                <button>à huit heure de l'après-midi</button>
+            </div>
+            <div class="col-md-3">
+                <button>à minuit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">6. Quel est votre jour préféré ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>samedi</button>
+            </div>
+            <div class="col-md-3">
+                <button>lundi</button>
+            </div>
+            <div class="col-md-3">
+                <button>mercredi</button>
+            </div>
+            <div class="col-md-3">
+                <button>mardi</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">7. Qui est le metteur en scène ?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>Gérard Depardieu</button>
+            </div>
+            <div class="col-md-3">
+                <button>Marion Cotillard</button>
+            </div>
+            <div class="col-md-3">
+                <button>Françoise Hardy</button>
+            </div>
+            <div class="col-md-3">
+                <button>Jean-Luc Goddard</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="question">8. Zut ! Le film commence à 21h00, mais il est 21h10.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button>Je suis à l'heure.</button>
+            </div>
+            <div class="col-md-3">
+                <button>Je suis en retard.</button>
+            </div>
+            <div class="col-md-3">
+                <button>Je suis en avance.</button>
+            </div>
+            <div class="col-md-3">
+                <button>Je suis nulle.</button>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-md-12">
+                <button id="done">Fini</button>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>

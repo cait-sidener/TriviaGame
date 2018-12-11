@@ -1,0 +1,24 @@
+button {
+    background-color: #ecd28f;
+}
+
+.container--content {
+    background-color: #daa520;
+    color: #2e78ae;
+    font-family: 'IM Fell French Canon SC', serif;
+    margin-top: 10%;
+    text-align: center;
+}
+
+#done {
+    font-size: 3em;
+}
+
+.question {
+    font-size: 2em;
+}
+
+.title {
+    color:#da4820;
+    font-size: 6em;
+}
