@@ -22,3 +22,13 @@
     color:#da4820;
     font-size: 6em;
 }
+
+.question-option {
+  display: inline-block;
+  margin: 1em;
+}
+.question-option > input {
+  vertical-align: middle;
+  margin: 0 0.3em 0 0;
+  cursor: pointer;
+}
