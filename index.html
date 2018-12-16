@@ -17,6 +17,58 @@
 </head>
 
 <body style="background-image: url('assets/images/Flag.jpg');">
+
+    <!-- Opening screen before starting the questions -->
+    <div id="splashscreen">
+        <div class="splashBox">
+            <h1 class="title">Un jeu de faits</h1>
+            <hr />
+            <button type="button" id="start-btn" class="btn btn-primary white-background red">Commencez !</button>
+        </div>
+    </div>
+
+    <!-- End screen after answering questions in the allotted time -->
+    <div id="finalScreen">
+        <div class="splashBox2">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title">Un jeu de faits</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Vous avez fini !</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="correctScreen">Les réponses vraies:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="wrongScreen">Les réponses fausses:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="noAnswerScreen">Pas de réponse:</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The time ends before answering the questions -->
+    <div id="timesUp">
+        <div class="timesUpBox">
+            <h2 class="itOver">C'est l'heure !</h2>
+            <hr />
+            <h4 id="correctTimesUp">Les réponse logique: </h4>
+            <h4 id="wrongTimesUp">Les réponse pas logique: </h4>
+        </div>
+    </div>
+
+    <!-- The main content -->
     <div class="container container--content">
         <div class="row">
             <div class="col-md-12">
@@ -29,173 +81,24 @@
                 <h4 class="timeRemaining"></h4>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">1. Comment est-ce qu'on dit 12h30 ?</p>
+        <div class="questions">
+            
+            <div id="question--container"><!-- questions goes here --></div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary white-background red" id="sub-but">Fini</button>
+                </div>
             </div>
+            <br />
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">midi et quart</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">midi moins le quart</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">midi et demi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">une heure moins le quart</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">2. Quel genre de film est triste ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">un drame</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">une comédie</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">un film d'action</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">un film d'aventures</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">3. Où est-ce que vous nagez ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">à l'école</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à la bibliothèque</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">au centre commércial</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à la piscine</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">4. À quelle heure dînons-nous ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">à 8h00</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à 19h00</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à midi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à 3h00 de l'après-midi</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">5. Quand allez-vous à l'école ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">à huit heure du soir</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à huit heure du matin</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à huit heure de l'après-midi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">à minuit</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">6. Quel est votre jour préféré ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">samedi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">lundi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">mercredi</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">mardi</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">7. Qui est le metteur en scène ?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">Gérard Depardieu</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">Marion Cotillard</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">Françoise Hardy</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">Jean-Luc Goddard</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="question">8. Zut ! Le film commence à 21h00, mais il est 21h10.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <button class="answers">Je suis à l'heure.</button>
-            </div>
-            <div class="col-md-3">
-                <button>Je suis en retard.</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">Je suis en avance.</button>
-            </div>
-            <div class="col-md-3">
-                <button class="answers">Je suis nulle.</button>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <button id="done">Fini</button>
-            </div>
-        </div>
-        <br/>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+        <br />
+        <br />
+        <br />
+        <br />
 
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
