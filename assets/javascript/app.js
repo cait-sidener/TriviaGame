@@ -89,21 +89,44 @@ var questions = [
   }
 ];
 
-var correctAnswers = 0;
-var incorrectAnswers = 0;
-var timmerIntervalId;
+var $content = $('#content');
+var $finalScreen = $('#finalScreen');
+var $splashScreen = $('#splashScreen');
+var $timesUp = $('#timesUp');
+var $timer = $(".timeRemaining"); 
+var timeLimit = 1;
 
-function startTimmer () {
+var correctAnswers = 0;
+var incompleteAnswers = 0;
+var incorrectAnswers = 0;
+
+var timerIntervalId;
+
+function startTimer () {
   // @todo Start a setInterval that will end the game after a certain amount of time.
   // Do not forget to save the id for later
   // You should display the time left to the user.
+  timerIntervalId = setInterval(resetTimer, 1000);
 }
 
-function endGame () {
-  console.log('game over');
+function stopTimer() {
+    clearInterval(timerIntervalId);
+}
+
+function resetTimer(){
+    $timer.html(timeLimit);
+    timeLimit--;
+    if (timeLimit === 0) {
+        stopTimer();
+        endGame(true);
+    }
+}
+
+function endGame(timeUp) {
+  console.log("game over", questions);
   /*
    * @todo
-   * 1. Stop the timmer
+   * 1. Stop the timer
    * 2. use jQuery to get all the 'checked' input. https://api.jquery.com/checked-selector/
    * 3. Loop thru the collection and get th value and the data-idx attribute
    * 4. Use the data-idx attribute to retrive the correctAnswer from the questions array
@@ -111,26 +134,70 @@ function endGame () {
    */
 
   // This is your skeleton for the intructions above:
-  // clearInterval(timmerIntervalId)
-  // $('your-selector-here').each(function (idx, itm) {
-  //   // Here `idx` is the index of the selection, and `itm` is the input element
-  //   // Use jQuery to extract the folowing information:
-  //   var value = // get the input value
-  //   var questionIdx = // get the index stored in data-idx
-  //   var answer = questions[questionIdx].correctAnswer
-  //
-  //   if (value === answer) {
-  //     // increment correctAnswer
-  //   } else {
-  //     // de-increment incorrectAnswers
-  //   }
-  // })
+//   clearInterval(timmerIntervalId)
+  questions.forEach(function (question) {
+    var value = '';
 
+    question.root.find('input').each(function (index, input) {
+        var $input = $(input);
+
+        if ($input.prop('checked')) {
+            value = $input.val();
+        }
+    });
+
+    if(!value) {
+        incompleteAnswers++;
+        return;
+    }
+    var hasCorrectAns = value === question.correctAnswer;
+    if (hasCorrectAns) {
+        correctAnswers++;
+    } else {
+        incorrectAnswers++;
+    }
+  });
+  console.log(correctAnswers, incompleteAnswers,incorrectAnswers);
+  $content.removeClass('active');
   // Update your page with the new data
   // Remember that you need to remove the questions and show the results
+
+  if (timeUp) {
+      startTimesUpScreen();
+      return;
+  }
+
+  startFinalScreen();
+}
+
+function startTimesUpScreen(){
+    $timesUp.addClass('active');
+
+    var $correctScreen = $('#correctTimesUp');
+    var $noAnswerScreen = $('#noAnswerTimesUp');
+    var $wrongScreen = $('#wrongTimesUp');
+
+    $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
+    $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
+    $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
+
+}
+
+
+function startFinalScreen() {
+    $finalScreen.addClass('active');
+
+    var $correctScreen = $('#correctScreen');
+    var $noAnswerScreen = $('#noAnswerScreen');
+    var $wrongScreen = $('#wrongScreen');
+
+    $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
+    $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
+    $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
 }
 
 function startGame () {
+    startTimer();
   var questionContainer = $("#question--container");
 
   for (var i = 0; i < questions.length; i++) {
@@ -151,12 +218,16 @@ function startGame () {
             value +
           "</label>"
         );
+
+        questions[i].root = newDiv;
       }
 
       questionContainer.append(newDiv);
   }
 
-  $("#sub-but").on("click", endGame)
+  $("#sub-but").on("click", function () {
+      endGame(false);
+  })
 }
 
 /*
@@ -173,7 +244,13 @@ function startGame () {
 //   startTimmer();
 // })
 
+$splashScreen.addClass('active');
+$splashScreen.on("click", function(){
+    $splashScreen.removeClass('active');
+    $content.addClass('active');
+    startGame();
+})
+
 
 // Note: remove this after you get the start button working...
 // this should be called from the start button click event after hiding the initial screen
-startGame();

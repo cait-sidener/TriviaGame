@@ -1,13 +1,18 @@
+
+.container {
+    display: none;
+}
+
+.container.active {
+    display: block;
+}
+
 .container--content {
     background-color: #daa520;
     color: #2e78ae;
     font-family: 'IM Fell French Canon SC', serif;
     margin-top: 10%;
     text-align: center;
-}
-
-.container--content2 {
-    display: none;
 }
 
 #done {
