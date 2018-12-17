@@ -17,6 +17,7 @@
 }
 
 #correctScreen {
+    color:#da4820;
     font-size:1.1em;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .fini {
-    font-size: 3em;
+    font-size: 2.3em;
 }
 
 .itOver {
@@ -47,6 +48,7 @@
 }
 
 #noAnswerScreen {
+    color:#da4820;
     font-size:1.1em;
 }
 
@@ -127,6 +129,7 @@
 }
 
 #wrongScreen {
+    color:#da4820;
     font-size: 1.1em;
 }
 
