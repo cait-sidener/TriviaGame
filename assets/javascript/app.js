@@ -94,7 +94,7 @@ var $finalScreen = $('#finalScreen');
 var $splashScreen = $('#splashScreen');
 var $timesUp = $('#timesUp');
 var $timer = $(".timeRemaining"); 
-var timeLimit = 1;
+var timeLimit = 60;
 
 var correctAnswers = 0;
 var incompleteAnswers = 0;
@@ -103,9 +103,7 @@ var incorrectAnswers = 0;
 var timerIntervalId;
 
 function startTimer () {
-  // @todo Start a setInterval that will end the game after a certain amount of time.
-  // Do not forget to save the id for later
-  // You should display the time left to the user.
+
   timerIntervalId = setInterval(resetTimer, 1000);
 }
 
@@ -124,17 +122,7 @@ function resetTimer(){
 
 function endGame(timeUp) {
   console.log("game over", questions);
-  /*
-   * @todo
-   * 1. Stop the timer
-   * 2. use jQuery to get all the 'checked' input. https://api.jquery.com/checked-selector/
-   * 3. Loop thru the collection and get th value and the data-idx attribute
-   * 4. Use the data-idx attribute to retrive the correctAnswer from the questions array
-   * 5. Compare values, if matches is the user answered correctly increment corrext
-   */
-
-  // This is your skeleton for the intructions above:
-//   clearInterval(timmerIntervalId)
+  
   questions.forEach(function (question) {
     var value = '';
 
@@ -159,8 +147,6 @@ function endGame(timeUp) {
   });
   console.log(correctAnswers, incompleteAnswers,incorrectAnswers);
   $content.removeClass('active');
-  // Update your page with the new data
-  // Remember that you need to remove the questions and show the results
 
   if (timeUp) {
       startTimesUpScreen();
@@ -230,19 +216,6 @@ function startGame () {
   })
 }
 
-/*
- * @todo The questions should be hidden at first
- * Use jQuery to add a click handler to a 'start' button
- */
-// $("your-start-btn-selector").on("click", function () {
-//   // @todo User jquery to remove the start screen and show the questions screen
-//
-//   // This populate the questions...
-//   startGame();
-//
-//   // @todo start the timer
-//   startTimmer();
-// })
 
 $splashScreen.addClass('active');
 $splashScreen.on("click", function(){
@@ -250,7 +223,3 @@ $splashScreen.on("click", function(){
     $content.addClass('active');
     startGame();
 })
-
-
-// Note: remove this after you get the start button working...
-// this should be called from the start button click event after hiding the initial screen

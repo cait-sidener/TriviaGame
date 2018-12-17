@@ -20,12 +20,21 @@
 
     <!-- Opening screen before starting the questions -->
     <div id="splashScreen" class="container">
+            <br />
+
         <div class="row">
 
             <div class="col-sm-12">
-                <h1 class="title">Un jeu de faits</h1>
-                <hr />
+                <h1 class="title3">Un jeu de faits</h1>
+                <br />
+                
+
                 <button type="button" id="start-btn" class="btn btn-primary white-background red">Commencez !</button>
+                <br />
+                <br />
+                <br />
+                
+
             </div>
 
         </div>
@@ -33,74 +42,97 @@
 
     <!-- End screen after answering questions in the allotted time -->
     <div id="finalScreen" class="container">
-        
+
         <div class="row">
             <div class="col-md-12">
-                <h1 class="title">Un jeu de faits</h1>
+                <h1 class="title1">Un jeu de faits</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h3>Vous avez fini !</h3>
+                <h2 class="fini">Vous avez fini !</h2>
             </div>
         </div>
+        <br />
+
         <div class="row">
             <div class="col-md-12">
-                <h4 id="correctScreen">Les réponses vraies:</h4>
+                <h4 id="correctScreen">Les réponses logiques:</h4>
             </div>
         </div>
+        <br />
+
         <div class="row">
             <div class="col-md-12">
-                <h4 id="wrongScreen">Les réponses fausses:</h4>
+                <h4 id="wrongScreen">Les réponses pas logiques:</h4>
             </div>
         </div>
+        <br />
+
         <div class="row">
             <div class="col-md-12">
                 <h4 id="noAnswerScreen">Pas de réponse:</h4>
             </div>
         </div>
+        <br />
 
     </div>
+    <br />
+    <br />
 
     <!-- The time ends before answering the questions -->
     <div id="timesUp" class="container">
         <div class="timesUpBox">
+            <br>
             <h2 class="itOver">C'est l'heure !</h2>
-            <hr />
-            <h4 id="correctTimesUp">Les réponse logique: </h4>
-            <h4 id="wrongTimesUp">Les réponse pas logique: </h4>
+            <br />
+            <h4 id="correctTimesUp">Les réponse logiques: </h4>
+            <br />
+            <h4 id="wrongTimesUp">Les réponse pas logiques: </h4>
+            <br />
             <h4 id="noAnswerTimesUp">Pas de réponse:</h4>
+            <br />
+            <br />
+
         </div>
     </div>
+    <br />
+    <br /><br />
+    <br /><br />
+    <br />
 
     <!-- The main content -->
     <div id="content" class="container container--content">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="title">Un jeu de faits</h1>
+                <h1 class="title2">Un jeu de faits</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h3>Le temps restant:</h3>
+                <h3 class="timeLeft">Le temps restant:</h3>
                 <h4 class="timeRemaining"></h4>
             </div>
         </div>
-        <div class="questions">
-            
-            <div id="question--container"><!-- questions goes here --></div>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-primary white-background red" id="sub-but">Fini</button>
+        <br />
+        
+            <div class="questions">
+
+                <div id="question--container">
+                    <!-- questions goes here -->
+                </div>
+                <br />
+                <br />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary white-background red" id="sub-but">Fini</button>
+                    </div>
                 </div>
             </div>
-            <br />
-        </div>
         <br />
         <br />
-        <br />
-        <br />
+      
 
 
         <script type="text/javascript" src="assets/javascript/app.js"></script>
