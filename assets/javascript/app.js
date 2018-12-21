@@ -1,5 +1,4 @@
-var questions = [
-  {
+var questions = [{
     question: "1. Comment est-ce qu'on dit 12h30 ?",
     answers: [
       "midi et quart",
@@ -93,7 +92,7 @@ var $content = $('#content');
 var $finalScreen = $('#finalScreen');
 var $splashScreen = $('#splashScreen');
 var $timesUp = $('#timesUp');
-var $timer = $(".timeRemaining"); 
+var $timer = $(".timeRemaining");
 var timeLimit = 60;
 
 var correctAnswers = 0;
@@ -102,124 +101,118 @@ var incorrectAnswers = 0;
 
 var timerIntervalId;
 
-function startTimer () {
+function startTimer() {
 
   timerIntervalId = setInterval(resetTimer, 1000);
 }
 
 function stopTimer() {
-    clearInterval(timerIntervalId);
+  clearInterval(timerIntervalId);
 }
 
-function resetTimer(){
-    $timer.html(timeLimit);
-    timeLimit--;
-    if (timeLimit === 0) {
-        stopTimer();
-        endGame(true);
-    }
+function resetTimer() {
+  $timer.html(timeLimit);
+  timeLimit--;
+  if (timeLimit === 0) {
+    stopTimer();
+    endGame(true);
+  }
 }
 
 function endGame(timeUp) {
   console.log("game over", questions);
-  
+
   questions.forEach(function (question) {
     var value = '';
 
     question.root.find('input').each(function (index, input) {
-        var $input = $(input);
+      var $input = $(input);
 
-        if ($input.prop('checked')) {
-            value = $input.val();
-        }
+      if ($input.prop('checked')) {
+        value = $input.val();
+      }
     });
 
-    if(!value) {
-        incompleteAnswers++;
-        return;
+    if (!value) {
+      incompleteAnswers++;
+      return;
     }
     var hasCorrectAns = value === question.correctAnswer;
     if (hasCorrectAns) {
-        correctAnswers++;
+      correctAnswers++;
     } else {
-        incorrectAnswers++;
+      incorrectAnswers++;
     }
   });
-  console.log(correctAnswers, incompleteAnswers,incorrectAnswers);
+  console.log(correctAnswers, incompleteAnswers, incorrectAnswers);
   $content.removeClass('active');
 
   if (timeUp) {
-      startTimesUpScreen();
-      return;
+    startTimesUpScreen();
+    return;
   }
 
   startFinalScreen();
 }
 
-function startTimesUpScreen(){
-    $timesUp.addClass('active');
+function startTimesUpScreen() {
+  $timesUp.addClass('active');
 
-    var $correctScreen = $('#correctTimesUp');
-    var $noAnswerScreen = $('#noAnswerTimesUp');
-    var $wrongScreen = $('#wrongTimesUp');
+  var $correctScreen = $('#correctTimesUp');
+  var $noAnswerScreen = $('#noAnswerTimesUp');
+  var $wrongScreen = $('#wrongTimesUp');
 
-    $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
-    $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
-    $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
+  $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
+  $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
+  $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
 
 }
-
 
 function startFinalScreen() {
-    $finalScreen.addClass('active');
+  $finalScreen.addClass('active');
 
-    var $correctScreen = $('#correctScreen');
-    var $noAnswerScreen = $('#noAnswerScreen');
-    var $wrongScreen = $('#wrongScreen');
+  var $correctScreen = $('#correctScreen');
+  var $noAnswerScreen = $('#noAnswerScreen');
+  var $wrongScreen = $('#wrongScreen');
 
-    $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
-    $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
-    $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
+  $correctScreen.append($('<span> ' + correctAnswers + '</span>'));
+  $noAnswerScreen.append($('<span> ' + incompleteAnswers + '</span>'));
+  $wrongScreen.append($('<span> ' + incorrectAnswers + '</span>'));
 }
 
-function startGame () {
-    startTimer();
+function startGame() {
+  startTimer();
   var questionContainer = $("#question--container");
 
   for (var i = 0; i < questions.length; i++) {
-      var newDiv = $("<div>");
-      newDiv.append($("<h4>" + questions[i].question + "</h4>"));
+    var newDiv = $("<div>");
+    newDiv.append($("<h4>" + questions[i].question + "</h4>"));
 
-      var options = questions[i].answers
-      for(var optIdx = 0; optIdx < options.length; optIdx++) {
-        var value = options[optIdx];
+    var options = questions[i].answers
+    for (var optIdx = 0; optIdx < options.length; optIdx++) {
+      var value = options[optIdx];
 
-        /*
-          Added a label with an input element with the value of the current option,
-          and the index of the question on the questions array.
-        */
-        newDiv.append(
-          "<label class='question-option'>" +
-            "<input type='radio' name='"+ questions[i].name +"' value='"+ value +"' data-idx='"+ i +"' />" +
-            value +
-          "</label>"
-        );
+      newDiv.append(
+        "<label class='question-option'>" +
+        "<input type='radio' name='" + questions[i].name + "' value='" + value + "' data-idx='" + i + "' />" +
+        value +
+        "</label>"
+      );
 
-        questions[i].root = newDiv;
-      }
+      questions[i].root = newDiv;
+    }
 
-      questionContainer.append(newDiv);
+    questionContainer.append(newDiv);
   }
 
   $("#sub-but").on("click", function () {
-      endGame(false);
+    endGame(false);
   })
 }
 
-
 $splashScreen.addClass('active');
-$splashScreen.on("click", function(){
-    $splashScreen.removeClass('active');
-    $content.addClass('active');
-    startGame();
+$splashScreen.on("click", function () {
+  $splashScreen.removeClass('active');
+  $content.addClass('active');
+  startGame();
 })
