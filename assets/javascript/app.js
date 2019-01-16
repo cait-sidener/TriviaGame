@@ -120,7 +120,6 @@ function resetTimer() {
 }
 
 function endGame(timeUp) {
-  console.log("game over", questions);
 
   questions.forEach(function (question) {
     var value = '';
@@ -144,7 +143,6 @@ function endGame(timeUp) {
       incorrectAnswers++;
     }
   });
-  console.log(correctAnswers, incompleteAnswers, incorrectAnswers);
   $content.removeClass('active');
 
   if (timeUp) {
